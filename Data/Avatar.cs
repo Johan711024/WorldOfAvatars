@@ -14,6 +14,8 @@ namespace WorldOfAvatars.Data
         public string? AvatarSvg { get; set; }
         public bool Mine { get; set; } = false;
 
+        
+
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
