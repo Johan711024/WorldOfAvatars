@@ -1,0 +1,118 @@
+@inject IJSRuntime JSRuntime;
+
+
+<p>render svg</p>
+
+
+<svg id="avatar_@(avatar?.Id)"  viewBox="0 0 4335 4335" >
+</svg>
+
+@code {
+
+    [Parameter]
+    public Avatar? avatar { get; set; }
+    
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+
+            await CreateSvg(avatar.UserName, avatar.AvatarSvg, "avatar_" + avatar.Id);
+
+            StateHasChanged();
+        } 
+    }
+
+
+    public async Task CreateSvg(string name, string avatarSvg, string avatarId)
+    {
+        //Console.WriteLine("Trying to create avatar: " + avatarId);
+
+        avatarSvg = avatarSvg.Replace('\'', '"');
+
+        List<string> names = new List<string>();
+        List<object> values = new List<object>();
+
+        //Console.WriteLine("1: " + avatarSvg);  
+        
+        foreach(var att in GetAttributes(avatarSvg))
+        {
+            names.Add(att.key);
+            values.Add(att.value);
+        } 
+
+        await JSRuntime.InvokeAsync<string>("InsertSVG", new object[]{ "path", names, values, avatarId});
+        
+        
+        //StateHasChanged();
+    }
+
+    private IEnumerable<(string key, string value)> GetAttributes(string raw)
+    {
+        //Console.WriteLine("2: ");    
+        
+        var attr = findAttributes(raw);
+
+Console.WriteLine("ATTRIBUTES BEFORE: " + attr);
+
+        var attributes = attr.Split(((char) 32));
+        
+        var count = attributes.Count() -1; //remove start tag and end tag
+
+        for(int i=1;i<count;i++)
+        {
+            Console.WriteLine("for " + attributes[i]);
+            var pair = attributes[i].Split('=');
+            yield return (pair[0],pair[1].Trim('\"'));
+        } 
+
+    }
+
+    private string findAttributes(string raw)
+    {
+        bool isWithinQuotes = false;
+        var newChar = "";
+        string newString = "";
+
+        foreach(char c in raw)
+        {
+            if(c.Equals(((char) 34))){
+                
+                isWithinQuotes=!isWithinQuotes;
+                
+            }
+
+            if(isWithinQuotes && c.Equals(((char) 32)))
+            {
+                
+                newChar="%20"; //inside quotes
+                
+            }
+            else if(!isWithinQuotes && c.Equals(((char) 47)))
+            {
+                newChar=" /"; //make blank at the end if closing tag
+            }
+            else
+            {     
+                newChar=c.ToString();
+            }
+            //Console.WriteLine(newChar);
+            newString = newString+newChar;
+        }
+
+        return newString;
+
+        //Console.WriteLine("3: " + newString);    
+        
+        @* var arr = newString.Split(((char) 32)); //array of attributes, split on blanks;
+        
+        for(var i=0; i<arr.Length; i++)
+        {
+            arr[i]=arr[i].Replace("%20", " ");
+        }
+
+        return arr; *@
+         
+    }
+}

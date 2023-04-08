@@ -1,0 +1,105 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime;
+
+<a href="/call-dotnet-example-2">link1</a>[]
+<a href="/call-dotnet-example-one-helper">link2</a>
+[]
+<a href="/generics-example">link3</a>
+
+
+
+<div  style="border: 5px solid #fcf; min-width: 100%; min-height 100%">
+
+@foreach (var avatar in avatarList)
+{
+    <AvatarComponent avatar="avatar" />
+}
+
+
+</div>
+
+@code {
+
+    //ToDo:
+    // 1. Skapa svg avatar utifrån kod
+    // 2. Gör det möjligt med drag-drop, minska o förstora, i 3d rymd
+    // 3. Spara i Avatar-objekt, broadcasta i realtid.
+    // 4. Inloggning med namn o svg
+    // 5. Spara i databas
+    // 6. Inloggning med Azure AD
+    // 7. Styr avatar med röst. Kolla ChatGPT wisper m.m...
+
+
+    //Dessa ska komma ifrån server-side
+    // Ska sorteras så att de får rätt z-index i förhållande till Z parametern.
+    List<Avatar> avatarList = new List<Avatar>();
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            //Gör tillfällig seed och skicka till servern vid första rendering
+            var anAvatar = new Avatar{
+                UserName="Mock1",
+                AvatarSvg="<path fill='#008DD2' d='M3346 1077c41,0 75,34 75,75 0,41 -34,75 -75,75 -41,0 -75,-34 -75,-75 0,-41 34,-75 75,-75zm-1198 -824c193,0 349,156 349,349 0,193 -156,349 -349,349 -193,0 -349,-156 -349,-349 0,-193 156,-349 349,-349zm-1116 546c151,0 274,123 274,274 0,151 -123,274 -274,274 -151,0 -274,-123 -274,-274 0,-151 123,-274 274,-274zm-500 1189c134,0 243,109 243,243 0,134 -109,243 -243,243 -134,0 -243,-109 -243,-243 0,-134 109,-243 243,-243zm500 1223c121,0 218,98 218,218 0,121 -98,218 -218,218 -121,0 -218,-98 -218,-218 0,-121 98,-218 218,-218zm1116 434c110,0 200,89 200,200 0,110 -89,200 -200,200 -110,0 -200,-89 -200,-200 0,-110 89,-200 200,-200zm1145 -434c81,0 147,66 147,147 0,81 -66,147 -147,147 -81,0 -147,-66 -147,-147 0,-81 66,-147 147,-147zm459 -1098c65,0 119,53 119,119 0,65 -53,119 -119,119 -65,0 -119,-53 -119,-119 0,-65 53,-119 119,-119z'/>",
+                X = 400,
+                Y= 400,
+                Z= 400
+
+            };
+            avatarList.Add(anAvatar);  
+
+             var anAvatar2 = new Avatar{
+                UserName="Mock2",
+                AvatarSvg="<path fill='#008DD2' d='M3346 1077c41,0 75,34 75,75 0,41 -34,75 -75,75 -41,0 -75,-34 -75,-75 0,-41 34,-75 75,-75zm-1198 -824c193,0 349,156 349,349 0,193 -156,349 -349,349 -193,0 -349,-156 -349,-349 0,-193 156,-349 349,-349zm-1116 546c151,0 274,123 274,274 0,151 -123,274 -274,274 -151,0 -274,-123 -274,-274 0,-151 123,-274 274,-274zm-500 1189c134,0 243,109 243,243 0,134 -109,243 -243,243 -134,0 -243,-109 -243,-243 0,-134 109,-243 243,-243zm500 1223c121,0 218,98 218,218 0,121 -98,218 -218,218 -121,0 -218,-98 -218,-218 0,-121 98,-218 218,-218zm1116 434c110,0 200,89 200,200 0,110 -89,200 -200,200 -110,0 -200,-89 -200,-200 0,-110 89,-200 200,-200zm1145 -434c81,0 147,66 147,147 0,81 -66,147 -147,147 -81,0 -147,-66 -147,-147 0,-81 66,-147 147,-147zm459 -1098c65,0 119,53 119,119 0,65 -53,119 -119,119 -65,0 -119,-53 -119,-119 0,-65 53,-119 119,-119z'/>",
+                X = 200,
+                Y= 200,
+                Z= 200
+
+            };
+            avatarList.Add(anAvatar2); 
+
+            var anAvatar3 = new Avatar{
+                UserName="Mock3",
+                AvatarSvg="<path fill='#008DD2' d='M3346 1077c41,0 75,34 75,75 0,41 -34,75 -75,75 -41,0 -75,-34 -75,-75 0,-41 34,-75 75,-75zm-1198 -824c193,0 349,156 349,349 0,193 -156,349 -349,349 -193,0 -349,-156 -349,-349 0,-193 156,-349 349,-349zm-1116 546c151,0 274,123 274,274 0,151 -123,274 -274,274 -151,0 -274,-123 -274,-274 0,-151 123,-274 274,-274zm-500 1189c134,0 243,109 243,243 0,134 -109,243 -243,243 -134,0 -243,-109 -243,-243 0,-134 109,-243 243,-243zm500 1223c121,0 218,98 218,218 0,121 -98,218 -218,218 -121,0 -218,-98 -218,-218 0,-121 98,-218 218,-218zm1116 434c110,0 200,89 200,200 0,110 -89,200 -200,200 -110,0 -200,-89 -200,-200 0,-110 89,-200 200,-200zm1145 -434c81,0 147,66 147,147 0,81 -66,147 -147,147 -81,0 -147,-66 -147,-147 0,-81 66,-147 147,-147zm459 -1098c65,0 119,53 119,119 0,65 -53,119 -119,119 -65,0 -119,-53 -119,-119 0,-65 53,-119 119,-119z'/>",
+                X = 690,
+                Y= 190,
+                Z= 100
+
+            };
+            avatarList.Add(anAvatar3); 
+
+            Console.WriteLine("count: " + avatarList.Count);        
+
+            StateHasChanged();
+        }
+
+        await JSRuntime.InvokeAsync<object>("initGame", DotNetObjectReference.Create(this));
+
+        @* _game = await LogoGame.Create(_canvas, _spritesheet); *@
+
+        // this will make sure that the viewport is correctly initialized
+        await JSRuntime.InvokeAsync<object>("gameWindowResize", DotNetObjectReference.Create(this));        
+    
+    }
+
+    [JSInvokable]
+    public async ValueTask GameLoop(float timeStamp)
+    {
+        @* if (null == _game) return;
+        await _game.Step(timeStamp); *@
+        Console.WriteLine("GameLoop Blazor " + timeStamp.ToString());
+    }
+
+    [JSInvokable]
+    public async ValueTask OnResize(int screenWidth, int screenHeight)
+    {
+        @* if (null == _game) return;
+        _game.Display.Size = new Size(screenWidth, screenHeight); *@
+        Console.WriteLine("OnResize Blazor");
+
+        
+    }
+}
+

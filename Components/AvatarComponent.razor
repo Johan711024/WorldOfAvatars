@@ -1,0 +1,69 @@
+@inject IJSRuntime JSRuntime;
+
+<div 
+    id="@avatar?.Id" 
+    class="avatar draggable"
+    style="
+        position: relative;
+        left: @(avatar?.X)px;
+        top: @(avatar?.Y)px;
+        width: @(avatarHeight)%;
+        height: @(avatarWidth)%;
+        z-index: @(avatarLayerValue);
+    "
+>
+<h3>@(avatar?.UserName)test</h3>
+<SVGComponent avatar="avatar"></SVGComponent>
+</div>
+
+@code {
+
+    [Parameter]
+    public Avatar? avatar { get; set; }
+    private int avatarHeight { get; set; }=0;
+    private int avatarWidth { get; set; }=0;
+    private int avatarLayerValue { get; set; }=0;
+    private int browserHeight { get; set; }
+    private int browserWidth { get; set; }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {}
+
+        var dimension = await JSRuntime.InvokeAsync<WindowDimension>("getWindowDimensions");
+        
+        browserHeight = dimension.Height;
+        browserWidth = dimension.Width;
+
+        if(avatar?.Z!=null){ 
+            var avatarH = (double)avatar.Z/dimension.Height;
+            var avatarW = (double)avatar.Z/dimension.Width;  
+
+            avatarHeight = Convert.ToInt32(avatarH*100); 
+            avatarWidth = Convert.ToInt32(avatarW*100); 
+            avatarLayerValue = avatar.Z; //stämmer detta?   
+        }
+
+
+        await JSRuntime.InvokeVoidAsync("dragAndDrop", ".draggable");
+        
+
+        //StateHasChanged();
+    }
+
+    [JSInvokable]
+    public async ValueTask AvatarPosition(float x,float y,float z)
+    {
+        Console.WriteLine("x: " + x + " y: " + y + " z: " + z);
+    }
+
+    public class WindowDimension
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
+
+
+}

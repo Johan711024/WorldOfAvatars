@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WorldOfAvatars
+build_property.RootNamespace = WorldOfAvatars
+build_property.ProjectDir = /Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Components/SVGComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TVkdDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/CallDotNetExample2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FsbERvdE5ldEV4YW1wbGUyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/CallDotNetExampleOneHelper.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FsbERvdE5ldEV4YW1wbGVPbmVIZWxwZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/Deserialize.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGVzZXJpYWxpemUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/GenericsExample.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvR2VuZXJpY3NFeGFtcGxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Components/AvatarComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BdmF0YXJDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-sopjnzg5a6
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-fief6h0vat
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

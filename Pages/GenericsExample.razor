@@ -1,0 +1,44 @@
+@page "/generics-example"
+@using System.Runtime.InteropServices
+@inject IJSRuntime JS
+@implements IDisposable
+
+<p>
+    <button @onclick="InvokeInterop">Invoke Interop</button>
+</p>
+
+<ul>
+    <li>genericType1: @genericType1?.Value</li>
+    <li>genericType2: @genericType2?.Value</li>
+</ul>
+
+@code {
+    private GenericType<string> genericType1 = new() { Value = "string 0" };
+    private GenericType<int> genericType2 = new() { Value = 0 };
+    private DotNetObjectReference<GenericType<string>>? objRef1;
+    private DotNetObjectReference<GenericType<int>>? objRef2;
+
+    protected override void OnInitialized()
+    {
+        objRef1 = DotNetObjectReference.Create(genericType1);
+        objRef2 = DotNetObjectReference.Create(genericType2);
+    }
+
+    public async Task InvokeInterop()
+    {
+        var syncInterop =
+            RuntimeInformation.IsOSPlatform(OSPlatform.Create("BROWSER"));
+
+            // Är "false" om det är Blazor server som körs...
+            Console.WriteLine("Is blazor webassembly: " + syncInterop);
+
+        await JS.InvokeVoidAsync(
+            "invokeMethodsAsync", syncInterop, objRef1, objRef2);
+    }
+
+    public void Dispose()
+    {
+        objRef1?.Dispose();
+        objRef2?.Dispose();
+    }
+}
