@@ -1,0 +1,31 @@
+
+
+
+
+<p>Enter your username:</p>
+    <input type="text" maxlength="32" @bind="UserName" />
+    <button type="button" @onclick="async () => await TryLogin()">Enter</button>
+
+    @if (ErrorMessage !=null)
+    {
+        <div class="invalid-feedback">@ErrorMessage</div>
+    }
+
+
+@code{
+
+    
+    private string? ErrorMessage;  
+
+
+    [Parameter]
+    public EventCallback<string> ActivateWorld { get; set; }
+    
+    public string? UserName { get; set; }
+
+    public async Task TryLogin()
+    {        
+        await ActivateWorld.InvokeAsync(UserName);
+    }
+
+}

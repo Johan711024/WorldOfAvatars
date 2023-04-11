@@ -20,20 +20,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Components/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Components/SVGComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TVkdDb21wb25lbnQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/CallDotNetExample2.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FsbERvdE5ldEV4YW1wbGUyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/CallDotNetExampleOneHelper.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FsbERvdE5ldEV4YW1wbGVPbmVIZWxwZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/Deserialize.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGVzZXJpYWxpemUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/johansvensson/Documents/c\#/WorldOfAvatars/WorldOfAvatars/Pages/GenericsExample.razor]

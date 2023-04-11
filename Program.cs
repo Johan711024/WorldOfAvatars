@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using WorldOfAvatars.Data;
+using WorldOfAvatars.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapBlazorHub();
+    endpoints.MapFallbackToPage("/_Host");
+    endpoints.MapHub<WorldHub>(WorldHub.HubUrl);
+}
+);
+
+
 
 app.Run();

@@ -30,3 +30,15 @@
 /Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/obj/Debug/net7.0/ref/WorldOfAvatars.dll
 /Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/obj/Debug/net7.0/scopedcss/Components/AvatarComponent.razor.rz.scp.css
 /Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/obj/Debug/net7.0/scopedcss/Pages/Index.razor.rz.scp.css
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.Connections.Abstractions.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.Http.Connections.Client.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.Http.Connections.Common.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.SignalR.Client.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.SignalR.Common.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.Extensions.Features.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/bin/Debug/net7.0/System.Net.WebSockets.WebSocketProtocol.dll
+/Users/johansvensson/Documents/c#/WorldOfAvatars/WorldOfAvatars/obj/Debug/net7.0/WorldOfAvatars.csproj.CopyComplete

@@ -9,6 +9,7 @@ namespace WorldOfAvatars.Data
     public class GenericType<TValue>
     {
         public TValue? Value { get; set; }
+        
 
     [JSInvokable]
     public void Update(TValue newValue)
