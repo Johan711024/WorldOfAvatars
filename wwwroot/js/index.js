@@ -34,9 +34,16 @@ window.InsertSVG = (tag,names,values, containerId) => {
 //Initierar game-loop och sätter game objekt med instans ifrån Blazor
 
 function gameLoop(timeStamp) {
-    //alert('gameloop js');
+    
+    console.log("gameloop js: ");
+
     window.requestAnimationFrame(gameLoop);
-    game.instance.invokeMethodAsync('GameLoop', timeStamp);
+
+
+    // Obs! STÄNGT AV gameloop anrop till blazor
+    //game.instance.invokeMethodAsync('GameLoop', timeStamp);
+
+
 
     //game.instance.invokeMethodAsync('GameLoop', 1);
 }
@@ -68,5 +75,25 @@ window.initGame = (instance) => {
 
     window.addEventListener("resize", onResize);
 
-    window.requestAnimationFrame(gameLoop);
+    // Obs! Avstängd gameloop för javascript
+    //window.requestAnimationFrame(gameLoop);
+};
+
+window.onmousemove = (e) => {
+    console.log(e.clientX + ' ' + e.clientY);
+    game.instance.invokeMethodAsync('AvatarPosition', e.clientX, e.clientY, scrollZ);
+};
+
+let scrollZ=0;
+window.onwheel = (e) => {
+    if (e.deltaY>0)
+    {
+        scrollZ++;
+    }
+    else{
+        scrollZ--;
+    }
+
+    console.log(e.clientX + ' ' + e.clientY);
+    game.instance.invokeMethodAsync('AvatarPosition', e.clientX, e.clientY, scrollZ);
 };

@@ -43,7 +43,7 @@
 
             avatarHeight = Convert.ToInt32(avatarH*100); 
             avatarWidth = Convert.ToInt32(avatarW*100); 
-            avatarLayerValue = avatar.Z; //stämmer detta?   
+            avatarLayerValue = (int)avatar.Z; //stämmer detta?   
         }
 
 
@@ -53,11 +53,7 @@
         //StateHasChanged();
     }
 
-    [JSInvokable]
-    public async ValueTask AvatarPosition(float x,float y,float z)
-    {
-        Console.WriteLine("x: " + x + " y: " + y + " z: " + z);
-    }
+    
 
     public class WindowDimension
     {

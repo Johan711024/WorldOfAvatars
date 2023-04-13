@@ -1,12 +1,14 @@
 ﻿@* //ToDo:
     // 1. Skapa svg avatar utifrån kod
-    // 1b. Gör det möjligt att skicka positionsdata mellan js o blazor
-    // 2. Gör det möjligt med drag-drop, minska o förstora, i 3d rymd
-    // 3. Spara i Avatar-objekt, broadcasta i realtid.
-    // 4. Inloggning med namn o svg
-    // 5. Spara i databas
-    // 6. Inloggning med Azure AD
-    // 7. Styr avatar med röst. Kolla ChatGPT wisper m.m...
+    // 2. Gör det möjligt att skicka positionsdata mellan js o blazor
+    // 3. Gör det möjligt med drag-drop, minska o förstora, i 3d rymd
+    // 4. Spara i Avatar-objekt, broadcasta i realtid.
+    // 5. Inloggning med namn o svg
+    // 6. När mus rör sig vrider man sig. Används mushjulet är det in/ut 4zoom.
+    // 7. Se andra avatarer i 3d rymd. I förstaperson läge. 
+    // 8. Spara i databas
+    // 9. Inloggning med Azure AD
+    // 10. Styr avatar med röst. Kolla ChatGPT wisper m.m...
 
 
     //Dessa ska komma ifrån server-side
@@ -18,9 +20,6 @@
 @inject NavigationManager navigationManager;
 @using Microsoft.AspNetCore.SignalR.Client;
 @using WorldOfAvatars.Hubs;
-
-
-
 
 @if(!isChatting)
 {
@@ -193,6 +192,19 @@
 
         hubConnection = null;
         isChatting = false;
+    }
+
+    [JSInvokable]
+    public async ValueTask AvatarPosition(float x,float y,float z)
+    {
+        Console.WriteLine("x: " + x + " y: " + y + " z: " + z);
+
+        myAvatar.X = x;
+        myAvatar.Y = y;
+        myAvatar.Z = z;
+
+        await SendAsync(myAvatar);
+        
     }
 }
 
